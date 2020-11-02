@@ -32,7 +32,10 @@ class CreateRegistersTable extends Migration
                 ->onDelete('restrict');                 // 参照先の削除を禁止する
 
             // 登録者
-            
+            $table->foreign('person_name')                   // personに外部キーを設定する
+                ->references('person1_name')->on('usere')    // usersテーブルのperson1カラムを外部キーにする
+                ->onDelete('restrict');                      // 参照先の削除を禁止する
+
 
             $table->timestamps();
         });
