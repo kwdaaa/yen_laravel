@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Total extends Model
+class Add extends Model
 {
     //
 }
