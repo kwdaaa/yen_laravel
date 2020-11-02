@@ -19,7 +19,7 @@ class CreateAddsTable extends Migration
 
             // カップルid
             $table->foreign('couple_id')                    // couple_idに外部キーを設定する
-                ->references('couple_name')->on('couples')    // cauplesテーブルのcouple_idカラムを外部キーにする
+                ->references('couple_id')->on('couples')    // cauplesテーブルのcouple_idカラムを外部キーにする
                 ->onDelete('restrict');                     // 参照先の削除を禁止する
 
             // 金額
@@ -30,7 +30,7 @@ class CreateAddsTable extends Migration
 
             // カテゴリーid
             $table->foreign('category_id')                  // category_idに外部キーを設定する
-            ->references('category_name')->on('categories')   // categoriesテーブルのidカラムを外部キーにする
+            ->references('category_id')->on('categories')   // categoriesテーブルのidカラムを外部キーにする
             ->onDelete('restrict');                         // 参照先の削除を禁止する
 
             // 登録者
