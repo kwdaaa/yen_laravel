@@ -15,10 +15,10 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             // 自動増分id
-            $table->increments('id');
+            $table->increments('category_id');
 
             // カテゴリー名
-            $table->string('category_name')->unique()->index();
+            $table->string('category_name');
         });
     }
 

@@ -14,8 +14,10 @@ class CreateTotalsTable extends Migration
     public function up()
     {
         Schema::create('totals', function (Blueprint $table) {
-            // 自動増分id
-            $table->increments('id');
+            // カップルid
+            $table->foreign('couple_id')                    // couple_idに外部キーを設定する
+                ->references('couple_id')->on('cauples')    // cauplesテーブルのcouple_idカラムを外部キーにする
+                ->onDelete('restrict');                     // 参照先の削除を禁止する
 
             ////////// person1 //////////
             // person1の食費合計

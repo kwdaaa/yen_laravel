@@ -17,8 +17,10 @@ class CreateRegistersTable extends Migration
             // 自動増分id
             $table->increments('id');
 
-            // カップルid（10バイト以内）
-            $table->char('couple_id', 10);
+            // カップルid
+            $table->foreign('couple_id')                // couple_idに外部キーを設定する
+            ->references('couple_id')->on('couples')    // cauplesテーブルのcouple_idカラムを外部キーにする
+            ->onDelete('restrict');                     // 参照先の削除を禁止する
 
             // 金額
             $table->integer('price');
@@ -28,15 +30,13 @@ class CreateRegistersTable extends Migration
 
             // カテゴリーid
             $table->foreign('category_id')              // category_idに外部キーを設定する
-                ->references('id')->on('categories')    // categoriesテーブルのidカラムを外部キーにする
+                ->references('category_id')->on('categories')    // categoriesテーブルのidカラムを外部キーにする
                 ->onDelete('restrict');                 // 参照先の削除を禁止する
 
             // 登録者
-            $table->foreign('person_name')                                   // personに外部キーを設定する
-                ->references('person1_name', 'person2_name')->on('users')    // usersテーブルのperson1カラムとperson2カラムとを外部キーにする
-                ->onDelete('restrict');                                      // 参照先の削除を禁止する
+            $table->foreign('person');
 
-
+            // タイムスタンプ
             $table->timestamps();
         });
     }
