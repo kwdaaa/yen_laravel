@@ -15,12 +15,13 @@ class CreateAddsTable extends Migration
     {
         Schema::create('adds', function (Blueprint $table) {
             // 自動増分id
-            $table->increments('add_id');
+            $table->increments('id');
 
             // カップルid
-            $table->foreign('couple_id')                    // couple_idに外部キーを設定する
-                ->references('couple_id')->on('couples')    // cauplesテーブルのcouple_idカラムを外部キーにする
-                ->onDelete('restrict');                     // 参照先の削除を禁止する
+            $table->integer('couple_id')->unsigned();
+            $table->foreign('couple_id')
+                ->references('id')->on('couples')
+                ->onDelete('cascade');
 
             // 金額
             $table->integer('price');
@@ -29,12 +30,13 @@ class CreateAddsTable extends Migration
             $table->date('date');
 
             // カテゴリーid
-            $table->foreign('category_id')                  // category_idに外部キーを設定する
-            ->references('category_id')->on('categories')   // categoriesテーブルのidカラムを外部キーにする
-            ->onDelete('restrict');                         // 参照先の削除を禁止する
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')
+                ->references('id')->on('categories')
+                ->onDelete('cascade');
 
             // 登録者
-            $table->foreign('person');
+            $table->Boolean('person');
 
             // タイムスタンプ
             $table->timestamps();

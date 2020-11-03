@@ -15,7 +15,7 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             // 自動増分id
-            $table->increments('category_id');
+            $table->increments('id');
 
             // カテゴリー名
             $table->string('category_name');

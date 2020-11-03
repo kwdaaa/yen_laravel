@@ -15,7 +15,7 @@ class CreateCouplesTable extends Migration
     {
         Schema::create('couples', function (Blueprint $table) {
             // 自動増分id
-            $table->increments('couple_id');
+            $table->increments('id');
 
             // カップルid（10バイト以内）
             $table->char('couple_name', 10);
