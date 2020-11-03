@@ -16,13 +16,13 @@ class MainController extends Controller
 {
     //////////////////////////////////////////////////
     // 00:ふたりの合計、Aさんの合計、Bさんの合計画面
-    public function all()
+    public function both($couple_id)
     {
-        // Addクラス(モデル)テーブル情報全件取得
-        $totals = Total::all();
+        // Addクラス(モデル)テーブルカップルidの情報取得
+        $total = Total::find($couple_id);
 
-        // yenティレクトリーの中のall.blade.phpページを指定し、キー「totals」にバリュー「$totals」を渡す。
-        return view('yen.all', [' totals' => $totals]);
+        // yenティレクトリーの中のboth.blade.phpページを指定し、キー「total」にバリュー「$total」を渡す。
+        return view('yen.both', ['total' => $total]);
     }
 
 
@@ -34,14 +34,21 @@ class MainController extends Controller
     // category_id：３（娯楽費）
     // category_id：４（固定費）
     // category_id：５（その他）
-    public function index()
+    public function index($couple_id, $category_id)
     {
         // Addクラス(モデル)テーブル情報全件取得
-        $adds = Add::all();
+        $couple_id = Add::find($couple_id);
+        $category_id = Add::find($category_id);
 
-        // yenティレクトリーの中のindex.blade.phpページを指定し、キー「adds」にバリュー「$adds」を渡す。
-        return view('yen.index', ['adds' => $adds]);
+        // yenディレクトリーの中のindex.blade.phpページを指定し、キー「adds」にバリュー「$adds」を渡す。
+        return view('yen.index', ['ccouple_id' => $couple_id], ['category_id' => $category_id]);
     }
+
+    // テスト用
+    // public function index()
+    // {
+    //     return view('yen.index');
+    // }
 
 
 
@@ -146,5 +153,4 @@ class MainController extends Controller
         // redirectで出力先の指定。削除したらhttp://localhost/yen/{couple_id}/{category_id}にとぶ。
         return redirect('yen/{couple_id}/{category_id}');
     }
-
 }

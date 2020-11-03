@@ -19,11 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// 「/」のURLでindexアクションへ飛ぶ
-Route::get('/', 'MainController@all');
+// 「/」のURLでbothアクションへ飛ぶ
+// Route::get('/', 'MainController@both');
 
 // 00:ふたりの合計、Aさんの合計、Bさんの合計画面
-Route::get('yen/{couple_id}', 'MainController@all');
+Route::get('yen/{couple_id}', 'MainController@both');
 
 
 // 01:各カテゴリーの合計画面
