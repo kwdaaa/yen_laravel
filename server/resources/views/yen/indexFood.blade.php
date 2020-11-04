@@ -13,22 +13,20 @@
             <hr class="line1">
 
             {{-- 家計記録 --}}
-            @if ($foods->where('person', 1 ))
             <div class="record">
                 {{-- 日付 --}}
                 <div class="date">
-                    @foreach ($foods as $food)
-                        <p>{{ $food->date }}</p>
+                    @foreach ($foods_person1 as $food_person1)
+                        <p>{{ $food_person1->date }}</p>
                     @endforeach
                 </div>
                 {{-- 値段 --}}
                 <div class="price">
-                    @foreach ($foods as $food)
-                        <p>{{ $food->price }}</p>
+                    @foreach ($foods_person1 as $food_person1)
+                        <p>{{ $food_person1->price }}</p>
                     @endforeach
                 </div>
             </div>
-            @endif
 
             <hr class="line2">
 
@@ -49,14 +47,14 @@
             <div class="record">
                 {{-- 日付 --}}
                 <div class="date">
-                    @foreach ($foods as $food)
-                        <p>{{ $food->date }}</p>
+                    @foreach ($foods_person2 as $food_person2)
+                        <p>{{ $food_person2->date }}</p>
                     @endforeach
                 </div>
                 {{-- 値段 --}}
                 <div class="price">
-                    @foreach ($foods as $food)
-                        <p>{{ $food->price }}</p>
+                    @foreach ($foods_person2 as $food_person2)
+                        <p>{{ $food_person2->price }}</p>
                     @endforeach
                 </div>
             </div>

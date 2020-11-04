@@ -46,42 +46,42 @@ class MainController extends Controller
         // couple_id($i)に該当するTotalテーブル(モデル)の情報を取得
         // $i = 1 だったら、Totalテーブルの「カラム名：couple_id」が「1」の情報だけ取得
 
-        // $foods_person1 = Add::where('couple_id', $id)->where('category_id', 1)->where('person', 1)->get();
-        // $foods_person2 = Add::where('couple_id', $id)->where('category_id', 1)->where('person', 0)->get();
-        $foods = Add::where('couple_id', $id)->where('category_id', 1)->get();
+        $foods_person1 = Add::where('couple_id', $id)->where('category_id', 1)->where('person', 1)->get();
+        $foods_person2 = Add::where('couple_id', $id)->where('category_id', 1)->where('person', 0)->get();
+        // $foods = Add::where('couple_id', $id)->where('category_id', 1)->get();
         $dairies = Add::where('couple_id', $id)->where('couple_id', 2)->get();
         $leisures = Add::where('couple_id', $id)->where('category_id', 3)->get();
         $housings = Add::where('couple_id', $id)->where('category_id', 4)->get();
         $Others = Add::where('couple_id', $id)->where('category_id', 5)->get();
-        
+
 
         switch ($category_id) {
-            // 食費
+                // 食費
             case '1':
-                // return view('yen.indexFood', ['couple' => $couple], ['foods_person1' => $foods_person1], ['foods_person2' => $foods_person2]);
-                return view('yen.indexFood', ['couple' => $couple], ['foods' => $foods]);
+                return view('yen.indexFood', ['couple' => $couple], ['foods_person1' => $foods_person1], ['foods_person2' => $foods_person2]);
+                // return view('yen.indexFood', ['couple' => $couple], ['foods' => $foods]);
                 break;
 
-            // 日用品費
+                // 日用品費
             case '2':
                 return view('yen.indexDaily', ['couple' => $couple], ['dairies' => $dairies]);
                 break;
 
-            // 娯楽費
+                // 娯楽費
             case '3':
                 return view('yen.indexLeisure', ['couple' => $couple], ['leisures' => $leisures]);
                 break;
 
-            // 固定費
+                // 固定費
             case '4':
                 return view('yen.indexHousing', ['couple' => $couple], ['housings' => $housings]);
                 break;
 
-            // その他
+                // その他
             case '5':
                 return view('yen.indexOther', ['couple' => $couple], ['Others' => $Others]);
                 break;
-            
+
             default:
                 echo 'カテゴリーが登録されていません。';
                 break;
