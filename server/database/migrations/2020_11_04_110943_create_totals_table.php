@@ -14,6 +14,9 @@ class CreateTotalsTable extends Migration
     public function up()
     {
         Schema::create('totals', function (Blueprint $table) {
+            // 自動増分id
+            $table->increments('id');
+
             // カップルid
             $table->integer('couple_id')->unsigned();
             $table->foreign('couple_id')
@@ -35,7 +38,7 @@ class CreateTotalsTable extends Migration
             $table->integer('person1_housing_total');
 
             // person1のその他合計
-            $table->integer('person1_others_total');
+            $table->integer('person1_other_total');
 
             // person1の全合計
             $table->integer('person1_total');
@@ -57,7 +60,7 @@ class CreateTotalsTable extends Migration
             $table->integer('person2_housing_total');
 
             // person2のその他合計
-            $table->integer('person2_others_total');
+            $table->integer('person2_other_total');
 
             // person2の全合計
             $table->integer('person2_total');
@@ -79,7 +82,7 @@ class CreateTotalsTable extends Migration
             $table->integer('both_housing_total');
 
             // ２人のその他合計
-            $table->integer('both_others_total');
+            $table->integer('both_other_total');
 
             // ２人の全合計
             $table->integer('both_total');
@@ -89,7 +92,6 @@ class CreateTotalsTable extends Migration
 
             // タイムスタンプ
             $table->timestamps();
-
         });
     }
 

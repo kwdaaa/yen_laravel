@@ -1,38 +1,12 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>同棲用家計簿アプリ | Yen</title>
+@extends('layouts.app')
 
-    <script src="{{ asset('js/app.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+@section('title', '食費')
 
-</head>
-<body>
-    {{-- ヘッダー --}}
-    <div class="header">
-        <div class="logo_img">
-            <a href="/"><img src="{{ asset('/img/logo.png') }}" alt="ロゴ"></a>
-        </div>
-
-        <div class="add_img">
-            <a href="/"><img src="{{ asset('/img/add.png') }}" alt="家計登録"></a>
-        </div>
-
-        <div class="config_img">
-            <a href="/"><img src="{{ asset('/img/config.png') }}" alt="設定"></a>
-        </div>
-    </div>
-
-
+@section('content')
     {{-- コンテンツ --}}
     <div class="contents">
         <div class="person1">
-            <p>かわだの食費</p>
+        <p>{{ $couple->person1_name }}の{{ $category->category_name}}</p>
 
             <hr class="line1">
 
@@ -71,7 +45,7 @@
 
 
         <div class="person2">
-            <p>しぶやの食費</p>
+            <p>{{ $couple->person2_name }}の{{ $category->category_name}}</p>
 
             <hr class="line1">
 
@@ -108,6 +82,4 @@
             </table>
         </div>
     </div>
-    
-</body>
-</html>
+@endsection

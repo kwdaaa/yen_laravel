@@ -10,19 +10,23 @@ use App\Add;
 // Totalクラス(モデル)を読み込む
 use App\Total;
 
+// Categoryクラス(モデル)を読み込む
+use App\Category;
+
+// Coupleクラス(モデル)を読み込む
+use App\Couple;
 
 
 class MainController extends Controller
 {
     //////////////////////////////////////////////////
     // 00:ふたりの合計、Aさんの合計、Bさんの合計画面
-    public function both($couple_id)
+    public function both($id)
     {
-        // Addクラス(モデル)テーブルカップルidの情報取得
-        $total = Total::find($couple_id);
+        // Coupleテーブル(モデル)$idの情報取得
+        $couple = Couple::find($id);
 
-        // yenティレクトリーの中のboth.blade.phpページを指定し、キー「total」にバリュー「$total」を渡す。
-        return view('yen.both', ['total' => $total]);
+        return view('yen.both', ['couple' => $couple]);
     }
 
 
@@ -34,21 +38,55 @@ class MainController extends Controller
     // category_id：３（娯楽費）
     // category_id：４（固定費）
     // category_id：５（その他）
-    public function index($couple_id, $category_id)
+    public function index($id, $category_id)
     {
-        // Addクラス(モデル)テーブル情報全件取得
-        $couple_id = Add::find($couple_id);
-        $category_id = Add::find($category_id);
+        // Coupleテーブル(モデル)$idの情報取得
+        $couple = Couple::find($id);
 
-        // yenディレクトリーの中のindex.blade.phpページを指定し、キー「adds」にバリュー「$adds」を渡す。
-        return view('yen.index', ['ccouple_id' => $couple_id], ['category_id' => $category_id]);
+        // couple_id($i)に該当するTotalテーブル(モデル)の情報を取得
+        // $i = 1 だったら、Totalテーブルの「カラム名：couple_id」が「1」の情報だけ取得
+
+        // $foods_person1 = Add::where('couple_id', $id)->where('category_id', 1)->where('person', 1)->get();
+        // $foods_person2 = Add::where('couple_id', $id)->where('category_id', 1)->where('person', 0)->get();
+        $foods = Add::where('couple_id', $id)->where('category_id', 1)->get();
+        $dairies = Add::where('couple_id', $id)->where('couple_id', 2)->get();
+        $leisures = Add::where('couple_id', $id)->where('category_id', 3)->get();
+        $housings = Add::where('couple_id', $id)->where('category_id', 4)->get();
+        $Others = Add::where('couple_id', $id)->where('category_id', 5)->get();
+        
+
+        switch ($category_id) {
+            // 食費
+            case '1':
+                // return view('yen.indexFood', ['couple' => $couple], ['foods_person1' => $foods_person1], ['foods_person2' => $foods_person2]);
+                return view('yen.indexFood', ['couple' => $couple], ['foods' => $foods]);
+                break;
+
+            // 日用品費
+            case '2':
+                return view('yen.indexDaily', ['couple' => $couple], ['dairies' => $dairies]);
+                break;
+
+            // 娯楽費
+            case '3':
+                return view('yen.indexLeisure', ['couple' => $couple], ['leisures' => $leisures]);
+                break;
+
+            // 固定費
+            case '4':
+                return view('yen.indexHousing', ['couple' => $couple], ['housings' => $housings]);
+                break;
+
+            // その他
+            case '5':
+                return view('yen.indexOther', ['couple' => $couple], ['Others' => $Others]);
+                break;
+            
+            default:
+                echo 'カテゴリーが登録されていません。';
+                break;
+        }
     }
-
-    // テスト用
-    // public function index()
-    // {
-    //     return view('yen.index');
-    // }
 
 
 
