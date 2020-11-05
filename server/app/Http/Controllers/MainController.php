@@ -45,41 +45,46 @@ class MainController extends Controller
 
         // couple_id($i)に該当するTotalテーブル(モデル)の情報を取得
         // $i = 1 だったら、Totalテーブルの「カラム名：couple_id」が「1」の情報だけ取得
-
         $foods_person1 = Add::where('couple_id', $id)->where('category_id', 1)->where('person', 1)->get();
         $foods_person2 = Add::where('couple_id', $id)->where('category_id', 1)->where('person', 0)->get();
-        // $foods = Add::where('couple_id', $id)->where('category_id', 1)->get();
-        $dairies = Add::where('couple_id', $id)->where('couple_id', 2)->get();
-        $leisures = Add::where('couple_id', $id)->where('category_id', 3)->get();
-        $housings = Add::where('couple_id', $id)->where('category_id', 4)->get();
-        $Others = Add::where('couple_id', $id)->where('category_id', 5)->get();
+
+        $dailies_person1 = Add::where('couple_id', $id)->where('category_id', 2)->where('person', 1)->get();
+        $dailies_person2 = Add::where('couple_id', $id)->where('category_id', 2)->where('person', 0)->get();
+
+        $leisures_person1 = Add::where('couple_id', $id)->where('category_id', 3)->where('person', 1)->get();
+        $leisures_person2 = Add::where('couple_id', $id)->where('category_id', 3)->where('person', 0)->get();
+
+        $housings_person1 = Add::where('couple_id', $id)->where('category_id', 4)->where('person', 1)->get();
+        $housings_person2 = Add::where('couple_id', $id)->where('category_id', 4)->where('person', 0)->get();
+
+        $others_person1 = Add::where('couple_id', $id)->where('category_id', 5)->where('person', 1)->get();
+        $others_person2 = Add::where('couple_id', $id)->where('category_id', 5)->where('person', 0)->get();
 
 
         switch ($category_id) {
                 // 食費
             case '1':
-                return view('yen.indexFood', ['couple' => $couple], ['foods_person1' => $foods_person1], ['foods_person2' => $foods_person2]);
-                // return view('yen.indexFood', ['couple' => $couple], ['foods' => $foods]);
+                return view('yen.indexFood', compact('couple', 'foods_person1', 'foods_person2'));
                 break;
 
                 // 日用品費
             case '2':
-                return view('yen.indexDaily', ['couple' => $couple], ['dairies' => $dairies]);
+                return view('yen.indexDaily', compact('couple', 'dailies_person1', 'dailies_person2'));
                 break;
 
                 // 娯楽費
             case '3':
-                return view('yen.indexLeisure', ['couple' => $couple], ['leisures' => $leisures]);
+                return view('yen.indexLeisure', compact('couple', 'leisures_person1', 'leisures_person2'));
                 break;
 
                 // 固定費
             case '4':
-                return view('yen.indexHousing', ['couple' => $couple], ['housings' => $housings]);
+                return view('yen.indexHousing', compact('couple', 'housings_person1', 'housings_person2'));
                 break;
 
                 // その他
             case '5':
-                return view('yen.indexOther', ['couple' => $couple], ['Others' => $Others]);
+                return view('yen.indexOther', compact('couple', 'others_person1', 'others_person2'));
                 break;
 
             default:

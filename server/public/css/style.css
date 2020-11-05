@@ -40,7 +40,7 @@ body{
     display: flex;
 }
 
-.contents p{
+.title{
     font-weight: bold;
     text-align:center;
     padding-bottom: 5px;
@@ -48,14 +48,14 @@ body{
 
 .person1{
     margin-right: auto;
-    font-size: 20pt;
+    font-size: 18pt;
     letter-spacing: 2pt;
     padding: 50px;
 }
 
 .person2{
     margin-left: auto;
-    font-size: 20pt;
+    font-size: 18pt;
     letter-spacing: 2pt;
     padding: 50px;
 }
@@ -76,6 +76,7 @@ body{
     margin: 10px 0px;
 }
 
+
 table {
     border-collapse: separate;
     border-spacing: 15px;
@@ -88,3 +89,12 @@ td .date{
 td .price{
     margin-left: auto;
 }
+
+td.data{
+    display: block;
+}
+
+td.price{
+    display: block;
+}
+

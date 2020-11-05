@@ -1,35 +1,40 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>同棲用家計簿アプリ | Yen</title>
+@extends('layouts.app')
 
-    <script src="{{ asset('js/app.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+@section('title', '家計登録')
 
-</head>
-<body>
-    {{-- ヘッダー --}}
-    <div class="header">
-        <div class="logo_img">
-            <a href="/"><img src="{{ asset('/img/logo.png') }}" alt="ロゴ"></a>
-        </div>
+@section('content')
 
-        <div class="add_img">
-            <a href="/"><img src="{{ asset('/img/add.png') }}" alt="家計登録"></a>
-        </div>
-
-        <div class="config_img">
-            <a href="/"><img src="{{ asset('/img/config.png') }}" alt="設定"></a>
-        </div>
-    </div>
+{{-- エラーを表示するためのコード --}}
+@foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+@endforeach
 
 
+<form action="/" method="post">
 
+    @csrf
+    
+    {{-- {{ old('title') }}を書くことで、エラーが起きたときに、書いた値が表示される。 --}}
 
-</body>
-</html>
+    <p>
+        日 付<br>
+        <select name="year">
+            <option value="2020-11-01">2020年11月1日</option>
+            <option value="2020-11-02">2020年11月2日</option>
+        </select>
+    </p>
+    <p>
+        購入者<br>
+        <input type="date" name="body">{{ old('body') }}>
+    </p>
+    <p>
+        金 額<br>
+        <input type="number" name="title" value="{{ old('title') }}">
+    </p>
+    <p>
+        カテゴリー<br>
+        <input type="number" name="title" value="{{ old('title') }}">
+    </p>
+
+    <input type="submit" value="投稿">
+</form>
