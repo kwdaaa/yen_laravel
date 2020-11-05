@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appIndex')
 
 @section('title', '日用品費')
 
@@ -7,62 +7,60 @@
     <div class="contents">
 
         {{-- person1 --}}
-        <div class="person1">
+        <div class="person">
+            <img src="{{ asset('/img/person1_l.png') }}" alt="person1" height="40">
             <p class="title">{{ $couple->person1_name }}の日用品費</p>
 
             <hr class="line1">
 
             {{-- 家計記録 --}}
-            <table class="person1_record">
+            <table class="person_record position-relative">
+                @foreach ($dailies_person1 as $daily_person1)
                 <tr>
-                    @foreach ($dailies_person1 as $daily_person1)
-                        <a href="/">
-                            <td class="date">{{ $daily_person1->date }}
-                                <td class="price">{{ $daily_person1->price }}</td>
-                            </td>
-                        </a>
-                    @endforeach
+                    <td class="date" ><a href="/" class="stretched-link"></a>{{ $daily_person1->date }}</td>
+                    <td class="price"><a href="/" class="stretched-link"></a>¥{{ $daily_person1->price }}</td>
                 </tr>
+                @endforeach
             </table>
 
             <hr class="line2">
 
             {{-- 家計記録：合計 --}}
-            <table class="person1_total">                
+            <table class="person_total">                
                 <tr>
-                    <td class="date">合  計</td>
-                    <td class="price">{{ $couple->total->person1_daily_total }}</td>
+                    <td class="total">合  計</td>
+                    <td class="total_price">¥{{ $couple->total->person1_daily_total }}</td>
                 </tr>                
             </table>
         </div>
 
         {{-- person2 --}}
-        <div class="person2">
+        <div class="person">
+            <img src="{{ asset('/img/person2_l.png') }}" alt="person2" height="40">
             <p class="title">{{ $couple->person2_name }}の日用品費</p>
 
             <hr class="line1">
 
             {{-- 家計記録 --}}
-            <table class="person1_record">
+            <table class="person_record position-relative">
+                @foreach ($dailies_person2 as $daily_person2)
                 <tr>
-                    @foreach ($dailies_person2 as $daily_person2)
-                        <td class="date">{{ $daily_person2->date }}</td>
-                    @endforeach
-                    @foreach ($dailies_person2 as $daily_person2)
-                        <td class="price">{{ $daily_person2->price }}</td>
-                    @endforeach
+                    <td class="date" ><a href="/" class="stretched-link"></a>{{ $daily_person2->date }}</td>
+                    <td class="price"><a href="/" class="stretched-link"></a>¥{{ $daily_person2->price }}</td>
                 </tr>
+                @endforeach
             </table>
 
             <hr class="line2">
 
             {{-- 家計記録：合計 --}}
-            <table class="person2_total">                
+            <table class="person_total">                
                 <tr>
-                    <td class="date">合  計</td>
-                    <td class="price">{{ $couple->total->person2_daily_total }}</td>
+                    <td class="total">合  計</td>
+                    <td class="total_price">¥{{ $couple->total->person2_daily_total }}</td>
                 </tr>                
             </table>
         </div>
     </div>
+
 @endsection

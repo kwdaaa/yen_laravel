@@ -1,40 +1,48 @@
-@extends('layouts.app')
+@extends('layouts.appCreate')
 
 @section('title', '家計登録')
 
 @section('content')
 
 {{-- エラーを表示するためのコード --}}
-@foreach ($errors->all() as $error)
+{{-- @foreach ($errors->all() as $error)
     <li>{{ $error }}</li>
-@endforeach
+@endforeach --}}
 
 
-<form action="/" method="post">
 
-    @csrf
-    
-    {{-- {{ old('title') }}を書くことで、エラーが起きたときに、書いた値が表示される。 --}}
+<div class="contents">
+<form action="/yen/{{ $couple->couple_id }}" method="post">
+        @csrf
 
-    <p>
-        日 付<br>
-        <select name="year">
-            <option value="2020-11-01">2020年11月1日</option>
-            <option value="2020-11-02">2020年11月2日</option>
-        </select>
-    </p>
-    <p>
-        購入者<br>
-        <input type="date" name="body">{{ old('body') }}>
-    </p>
-    <p>
-        金 額<br>
-        <input type="number" name="title" value="{{ old('title') }}">
-    </p>
-    <p>
-        カテゴリー<br>
-        <input type="number" name="title" value="{{ old('title') }}">
-    </p>
+        {{-- {{ old('title') }}を書くことで、エラーが起きたときに、書いた値が表示される。 --}}
+        <p>日 付<br></p>
+            <input class="input" type="date" value="<?php echo date('Y-m-d'); ?>" min="2020-11-01" max="2025-12-31">
 
-    <input type="submit" value="投稿">
-</form>
+        <p>購入者<br></p>
+            <select class="input" name="person" size="1" value="{{ old('person') }}">
+                <option value=""></option>
+                <option value="1">{{ $couple->person1_name }}</option>
+                <option value="0">{{ $couple->person2_name }}</option>
+            </select>
+        </p>
+
+        <p>金 額<br></p>
+            <input class="input" type="number" name="price" value="{{ old('price') }}" min="0">
+
+        <p>カテゴリー<br></p>
+            {{-- <input type="text" name="category" value="食費, 日用品費, 娯楽費, 固定費, その他"> --}}
+            <select class="input" name="category" size="1" value="{{ old('category') }}">
+                <option value=""></option>
+                <option value="1">食   費</option>
+                <option value="2">日 用 品 費</option>
+                <option value="3">娯 楽 費</option>
+                <option value="4">固 定 費</option>
+                <option value="5">そ の 他</option>
+            </select>
+
+        <button type="submit">登　録</button>
+    </form>
+</div>
+
+@endsection

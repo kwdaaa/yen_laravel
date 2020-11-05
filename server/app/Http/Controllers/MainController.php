@@ -88,7 +88,7 @@ class MainController extends Controller
                 break;
 
             default:
-                echo 'カテゴリーが登録されていません。';
+                echo '表示できません';
                 break;
         }
     }
@@ -97,9 +97,15 @@ class MainController extends Controller
 
     //////////////////////////////////////////////////
     // 02-1:登録画面
-    public function create()
+    public function create($id)
     {
-        return view('yen.create');
+        // Coupleテーブル(モデル)$idの情報取得
+        $couple = Couple::find($id);
+
+        
+        $category = Category::all();
+
+        return view('yen.create', compact('couple', 'category'));
     }
 
     // 02-2:登録機能
@@ -109,17 +115,17 @@ class MainController extends Controller
         $add = new Add;
 
         // 値の用意
-        // $request->priceに入ってきた値を$add->priceに入れ直す。
-        $add->price = $request->price;
-
-        // $request->category_idに入ってきた値を$add->category_idに入れ直す。
-        $add->category_id = $request->category_id;
-
         // $request->dateに入ってきた値を$add->dateに入れ直す。
         $add->date = $request->date;
 
         // $request->personに入ってきた値を$add->personに入れ直す。
         $add->person = $request->person;
+
+        // $request->priceに入ってきた値を$add->priceに入れ直す。
+        $add->price = $request->price;
+
+        // $request->category_idに入ってきた値を$add->category_idに入れ直す。
+        $add->category_id = $request->category_id;
 
         // addのtimestampsは設定されているからtrue
         $add->timestamps = true;

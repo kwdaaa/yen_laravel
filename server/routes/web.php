@@ -35,9 +35,9 @@ Route::get('yen/{id}', 'MainController@both');
 Route::get('yen/{id}/{category_id}', 'MainController@index');
 
 
-// 02-1:登録画面
-Route::get('yen/{id}/create', 'MainController@create');
-// 02-2:登録機能
+// 02-1:データ送信
+Route::get('yen/{id}/create/add', 'MainController@create');
+// 02-2:データ登録
 Route::post('yen/{id}', 'MainController@store');
 
 
@@ -45,9 +45,9 @@ Route::post('yen/{id}', 'MainController@store');
 Route::get('/yen/{id}/{category_id}/{add_id}', 'MainController@show');
 
 
-// 04-1:編集画面
+// 04-1:編集データ送信
 Route::get('/yen/{id}/{category_id}/{add_id}/edit', 'MainController@edit');
-// 04-2:編集機能
+// 04-2:編集データ登録
 Route::patch('/yen/{id}/{category_id}/{add_id}', 'MainController@update');
 
 

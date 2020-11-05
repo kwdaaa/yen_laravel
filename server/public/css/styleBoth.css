@@ -1,0 +1,131 @@
+/* コンテンツ */
+/* 基本設定 */
+.contents{
+    display: flex;
+    margin: 0px 50px;
+}
+
+/* テーブル全体 */
+table {
+    border-collapse: separate;
+    border-spacing: 5px 40px;
+}
+
+/* <person>の<category> */
+.title{
+    font-size: 18pt;
+    width: 240px;
+    font-weight: bold;
+    text-align:center;
+    padding-bottom: 5px;
+}
+
+.title_non{
+    font-size: 18pt;
+    width:  50px;
+    font-weight: bold;
+    text-align:center;
+    padding-bottom: 5px;
+    color: white;
+}
+
+
+
+/* icon */
+/* 全情報：ブロック（金額アイコン、合計アイコン） */
+.icon{
+    width: 60px;
+    height: 113px;
+    padding: 0px;
+}
+
+
+.img_food{
+    margin: 174.5px 0px 4px 0px;
+}
+.img_daily{
+    margin: 4px 0px 4px 0px;
+}
+.img_leisure{
+    margin: 4px 0px 4px 0px;
+}
+.img_housing{
+    margin: 4px 0px 4px 0px;
+}
+.img_other{
+    margin: 4px 0px 4px 0px;
+}
+.img_total{
+    margin: 50px 0px 4px 0px;
+}
+
+
+
+.person img{
+    display: block;
+    margin: 0px 30px 10px auto;
+}
+
+img.person_special{
+    display: block;
+    margin: 0px auto 10px 75px;
+}
+
+
+
+
+/* person */
+/* 全情報：ブロック（タイトル、金額） */
+.person{
+    width: 240px;
+    margin-right: auto;
+    font-size: 25pt;
+    letter-spacing: 2pt;
+    padding: 50px 50px 50px 25px;
+}
+
+/* 個別登録情報：ブロック（金額） */
+.person_record{
+    width: 240px;
+    padding-right:30px;
+    text-align: right;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+/* 合計登録情報：ブロック（合計金額） */
+.person_total{
+    width: 240px;
+    padding-right:30px;
+    text-align: right;
+    font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+
+/* 点線 */
+.line1{
+    width: 240px;
+    border: none;
+    border-top: dashed 2px #3E3A39;
+    margin: 10px 0px 5px 0px;
+}
+
+/* 実線 */
+.line2{
+    width: 240px;
+    border: none;
+    border-top: solid 3px #3E3A39;
+    margin: 5px 0px 0px 0px;
+}
+
+a{
+    color: #3E3A39;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #C9CACA;
+}

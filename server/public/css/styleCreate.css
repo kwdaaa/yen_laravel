@@ -1,0 +1,37 @@
+.input{
+    width: 400px;
+    height: 35px;
+    font-size: 13pt;
+    color: #3E3A39;
+    padding-left: 10px;
+    letter-spacing: 0em;
+}
+
+button{
+    display: block;
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 400px;
+    height: 35px;
+    font-size: 13pt;
+    border-radius: 17.5px;
+    background-color: #13AE67;
+    color: white;
+    margin-top: 25px;
+}
+
+button:hover{
+	opacity: 0.7;
+}
+
+p{
+    margin: 10px 0px 5px 0px;
+    color: #9FA0A0;
+}
+
+.contents{
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+}
