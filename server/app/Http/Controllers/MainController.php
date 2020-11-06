@@ -99,20 +99,31 @@ class MainController extends Controller
     // 02-1:登録画面
     public function create($id)
     {
+        $id = 1;
+
         // Coupleテーブル(モデル)$idの情報取得
         $couple = Couple::find($id);
-
         
         $category = Category::all();
 
-        return view('yen.create', compact('couple', 'category'));
+        // $add = new Add;
+
+        // dd($add);
+
+        return view('yen.create', compact('couple', 'category', 'id'));
     }
 
     // 02-2:登録機能
     public function store(Request $request)
     {
+        // Coupleテーブル(モデル)$idの情報取得
+        // $couple = Couple::find($id);
+        $id = 1;
+        $category_id = $request->category_id;
+
         // Addクラス(モデル)を$addにインスタンス化
         $add = new Add;
+        // $add = Add::where('couple_id', $id)->get();
 
         // 値の用意
         // $request->dateに入ってきた値を$add->dateに入れ直す。
@@ -131,10 +142,11 @@ class MainController extends Controller
         $add->timestamps = true;
 
         // インスタンスに値を設定して保存
+        dd($add);
         $add->save();
 
-        // redirectで出力先の指定。登録したらhttp://localhost/yen/{couple_id}/{category_id}にとぶ。
-        return redirect('yen/{couple_id}/{category_id}');
+        // redirectで出力先の指定。登録したらhttp://localhost/yen/{id}/{category_id}にとぶ。
+        return redirect("yen/{{ $id }}/{{ $category_id }}");
     }
 
 

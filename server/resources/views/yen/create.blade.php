@@ -12,12 +12,11 @@
 
 
 <div class="contents">
-<form action="/yen/{{ $couple->couple_id }}" method="post">
+<form action="/yen" method="post">
         @csrf
-
         {{-- {{ old('title') }}を書くことで、エラーが起きたときに、書いた値が表示される。 --}}
         <p>日 付<br></p>
-            <input class="input" type="date" value="<?php echo date('Y-m-d'); ?>" min="2020-11-01" max="2025-12-31">
+            <input class="input" type="date" value="<?php echo date('Y-m-d'); ?>" min="2020-11-01" max="2025-12-31" value="{{ old('date') }}">
 
         <p>購入者<br></p>
             <select class="input" name="person" size="1" value="{{ old('person') }}">
@@ -32,7 +31,7 @@
 
         <p>カテゴリー<br></p>
             {{-- <input type="text" name="category" value="食費, 日用品費, 娯楽費, 固定費, その他"> --}}
-            <select class="input" name="category" size="1" value="{{ old('category') }}">
+            <select class="input" name="category_id" size="1" value="{{ old('category_id') }}">
                 <option value=""></option>
                 <option value="1">食   費</option>
                 <option value="2">日 用 品 費</option>
