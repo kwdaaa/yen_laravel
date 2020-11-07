@@ -53,3 +53,13 @@ Route::post('/yen/1/{add_id}/add', 'MainController@update');
 
 // 05:削除機能
 Route::delete('/yen/1/{add_id}/add', 'MainController@destroy');
+
+
+// 06:全て削除機能
+Route::get('/yen/1/1/1/1/1/1/1', 'MainController@alldestroy');
+
+
+// // 06-1:データ送信（全て削除機能）
+// Route::get('yen/1/create/config', 'MainController@createClear');
+// // 06-1:データ登録（全て削除機能）
+// Route::post('yen/1', 'MainController@createStore');

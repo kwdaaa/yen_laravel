@@ -299,4 +299,39 @@ class MainController extends Controller
         // redirectで出力先の指定。削除したらhttp://localhost/yen/{couple_id}/{category_id}にとぶ。
         return redirect("yen/1/$add->category_id");
     }
+
+
+    // 全て削除機能
+    public function alldestroy($id)
+    {
+        $id = 1;
+
+        $total = Total::find($id);
+
+        $total->person1_food_total = 0;
+        $total->person1_daily_total = 0;
+        $total->person1_leisure_total = 0;
+        $total->person1_housing_total = 0;
+        $total->person1_other_total = 0;
+        $total->person1_total = 0;
+        
+        $total->person2_food_total = 0;
+        $total->person2_daily_total = 0;
+        $total->person2_leisure_total = 0;
+        $total->person2_housing_total = 0;
+        $total->person2_other_total = 0;
+        $total->person2_total = 0;
+        
+        $total->both_food_total = 0;
+        $total->both_daily_total = 0;
+        $total->both_leisure_total = 0;
+        $total->both_housing_total = 0;
+        $total->both_other_total = 0;
+        $total->both_total = 0;
+
+        $total->save();
+
+        // return redirect("yen/");
+        return view('yen.config');
+    }
 }
