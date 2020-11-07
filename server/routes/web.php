@@ -23,7 +23,7 @@ Auth::routes();
 // Route::get('/', 'MainController@both');
 
 // 00:ふたりの合計、Aさんの合計、Bさんの合計画面
-Route::get('yen/{id}', 'MainController@both');
+Route::get('yen', 'MainController@both');
 
 
 // 01:各カテゴリーの合計画面

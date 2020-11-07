@@ -1,6 +1,6 @@
 <div class="header">
     <div class="logo_img">
-        <a href="/yen/1"><img src="{{ asset('/img/logo.png') }}" alt="ロゴ" height="50"></a>
+        <a href="/yen"><img src="{{ asset('/img/logo.png') }}" alt="ロゴ" height="50"></a>
     </div>
 
     <div class="add_img">
@@ -8,6 +8,6 @@
     </div>
 
     <div class="config_img">
-        <a href="/yen/1"><img src="{{ asset('/img/config.png') }}" alt="設定" height="35"></a>
+        <a href="/yen"><img src="{{ asset('/img/config.png') }}" alt="設定" height="35"></a>
     </div>
 </div>

@@ -21,8 +21,9 @@ class MainController extends Controller
 {
     //////////////////////////////////////////////////
     // 00:ふたりの合計、Aさんの合計、Bさんの合計画面
-    public function both($id)
+    public function both()
     {
+        $id = 1;
         // Coupleテーブル(モデル)$idの情報取得
         $couple = Couple::find($id);
 
@@ -169,10 +170,33 @@ class MainController extends Controller
     private function total($id)
     {
         $adds = Add::where('couple_id', $id)->get();
-        $person1_food_total = $adds->where('person',0)->where('category_id',1)->pluck('price')->sum();
-        $person1_food_total = $adds->where('person',0)->where('category_id',1)->pluck('price')->sum();
+        $total = Total::find($id);
 
-        // $adds->();
+        $total->person1_food_total = $adds->where('person',1)->where('category_id',1)->pluck('price')->sum();
+        $total->person2_food_total = $adds->where('person',0)->where('category_id',1)->pluck('price')->sum();
+        $total->both_food_total = $adds->where('category_id',1)->pluck('price')->sum();
+
+        $total->person1_daily_total = $adds->where('person',1)->where('category_id',2)->pluck('price')->sum();
+        $total->person2_daily_total = $adds->where('person',0)->where('category_id',2)->pluck('price')->sum();
+        $total->both_daily_total = $adds->where('category_id',2)->pluck('price')->sum();
+
+        $total->person1_leisure_total = $adds->where('person',1)->where('category_id',3)->pluck('price')->sum();
+        $total->person2_leisure_total = $adds->where('person',0)->where('category_id',3)->pluck('price')->sum();
+        $total->both_leisure_total = $adds->where('category_id',3)->pluck('price')->sum();
+
+        $total->person1_housing_total = $adds->where('person',1)->where('category_id',4)->pluck('price')->sum();
+        $total->person2_housing_total = $adds->where('person',0)->where('category_id',4)->pluck('price')->sum();
+        $total->both_housing_total = $adds->where('category_id',4)->pluck('price')->sum();
+
+        $total->person1_other_total = $adds->where('person',1)->where('category_id',5)->pluck('price')->sum();
+        $total->person2_other_total = $adds->where('person',0)->where('category_id',5)->pluck('price')->sum();
+        $total->both_other_total = $adds->where('category_id',5)->pluck('price')->sum();
+        
+        $total->person1_total = $adds->where('person',1)->pluck('price')->sum();
+        $total->person2_total = $adds->where('person',0)->pluck('price')->sum();
+        $total->both_total = $adds->pluck('price')->sum();
+        
+        $total->save();
 
         // $total->person1_food_total += $request->price;
     }
@@ -211,6 +235,8 @@ class MainController extends Controller
     // Route::patch('/yen/1/{add_id}/add', 'MainController@update');
     public function update(Request $request, $add_id)
     {
+
+        $id = 1;
         // Addクラス(モデル)を$addにインスタンス化
         $add = new Add;
 
@@ -247,6 +273,8 @@ class MainController extends Controller
         // インスタンスに値を設定して保存
         $add->save();
 
+        $this->total($id);
+
         // redirectで出力先の指定。編集したらhttp://localhost/yen/{couple_id}/{category_id}にとぶ。
         return redirect("yen/1/$request->category_id");
     }
@@ -257,11 +285,16 @@ class MainController extends Controller
     // 05:削除機能
     public function destroy($add_id)
     {
+
+        $id = 1;
+
         // 取得したidの情報を$add変数にいれる。
         $add = Add::find($add_id);
 
         // $add変数に入った情報を消す。
         $add->delete();
+
+        $this->total($id);
 
         // redirectで出力先の指定。削除したらhttp://localhost/yen/{couple_id}/{category_id}にとぶ。
         return redirect("yen/1/$add->category_id");

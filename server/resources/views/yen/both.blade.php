@@ -28,19 +28,19 @@
             {{-- ふたりの家計記録 --}}
             <table class="person_record">
                 <tr>
-                    <td class="date" ><a href="/yen/1/1">¥{{ $couple->total->both_food_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/1">¥{{ number_format($couple->total->both_food_total) }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/yen/1/2">¥{{ $couple->total->both_daily_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/2">¥{{ number_format($couple->total->both_daily_total) }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/yen/1/3">¥{{ $couple->total->both_leisure_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/3">¥{{ number_format($couple->total->both_leisure_total) }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/yen/1/4">¥{{ $couple->total->both_housing_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/4">¥{{ number_format($couple->total->both_housing_total) }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/yen/1/5">¥{{ $couple->total->both_other_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/5">¥{{ number_format($couple->total->both_other_total) }}</a></td>
                 </tr>
             </table>
 
@@ -49,7 +49,7 @@
             {{-- ふたりの家計記録：合計 --}}
             <table class="person_total">                
                 <tr>
-                    <td class="date">¥{{ $couple->total->both_total }}</td>
+                    <td class="date">¥{{ number_format($couple->total->both_total) }}</td>
                 </tr>                
             </table>
         </div>

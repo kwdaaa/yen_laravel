@@ -15,15 +15,24 @@
             <hr class="line1">
 
             {{-- 家計記録 --}}
-            @foreach ($foods_person1 as $food_person1)
+            @if(count($foods_person1)>0)
+                @foreach ($foods_person1 as $food_person1)
                 <table class="person_record position-relative">
                 <tr>
                     <td><a href="{{ $food_person1->id }}/add/edit" class="stretched-link"></a></td>
-                    <td class="date" >{{ $food_person1->date }}</td>
-                    <td class="price">¥{{ $food_person1->price }}</td>
+                    <td class="date" >{{ date('Y/m/d', strtotime($food_person1->date)) }}</td>
+                    <td class="price">¥{{ number_format($food_person1->price) }}</td>
                 </tr>
                 </table>
-            @endforeach
+                @endforeach
+            @else
+                <table class="person_non_record">
+                    <tr>
+                        <td class="date"></td>
+                        <td class="price">¥0</td>
+                    </tr>
+                </table>
+            @endif
 
             <hr class="line2">
 
@@ -31,7 +40,7 @@
             <table class="person_total">                
                 <tr>
                     <td class="total">合  計</td>
-                    <td class="total_price">¥{{ $couple->total->person1_food_total }}</td>
+                    <td class="total_price">¥{{ number_format($couple->total->person1_food_total) }}</td>
                 </tr>                
             </table>
         </div>
@@ -44,15 +53,24 @@
             <hr class="line1">
 
             {{-- 家計記録 --}}
-            @foreach ($foods_person2 as $food_person2)
+            @if(count($foods_person2)>0)
+                @foreach ($foods_person2 as $food_person2)
                 <table class="person_record position-relative">
                 <tr>
                     <td><a href="{{ $food_person2->id }}/add/edit" class="stretched-link"></a></td>
-                    <td class="date" >{{ $food_person2->date }}</td>
-                    <td class="price">¥{{ $food_person2->price }}</td>
+                    <td class="date" >{{ date('Y/m/d', strtotime($food_person2->date)) }}</td>
+                    <td class="price">¥{{ number_format($food_person2->price) }}</td>
                 </tr>
                 </table>
-            @endforeach
+                @endforeach
+            @else
+                <table class="person_non_record">
+                    <tr>
+                        <td class="date"></td>
+                        <td class="price">¥0</td>
+                    </tr>
+                </table>
+            @endif
 
             <hr class="line2">
 
@@ -60,7 +78,7 @@
             <table class="person_total">                
                 <tr>
                     <td class="total">合  計</td>
-                    <td class="total_price">¥{{ $couple->total->person2_food_total }}</td>
+                    <td class="total_price">¥{{ number_format($couple->total->person2_food_total) }}</td>
                 </tr>                
             </table>
         </div>
