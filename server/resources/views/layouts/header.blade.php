@@ -8,6 +8,6 @@
     </div>
 
     <div class="config_img">
-        <a href="/yen"><img src="{{ asset('/img/config.png') }}" alt="設定" height="35"></a>
+        <a href="/yen/1/config"><img src="{{ asset('/img/config.png') }}" alt="設定" height="35"></a>
     </div>
 </div>

@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/yen/1/config', function () {
+    return view('yen.config');
+});
+
 Auth::routes();
 
 // 「/」のURLでbothアクションへ飛ぶ
@@ -55,11 +59,5 @@ Route::post('/yen/1/{add_id}/add', 'MainController@update');
 Route::delete('/yen/1/{add_id}/add', 'MainController@destroy');
 
 
-// 06:全て削除機能
-Route::get('/yen/1/1/1/1/1/1/1', 'MainController@alldestroy');
-
-
-// // 06-1:データ送信（全て削除機能）
-// Route::get('yen/1/create/config', 'MainController@createClear');
-// // 06-1:データ登録（全て削除機能）
-// Route::post('yen/1', 'MainController@createStore');
+// 06-1:全て削除機能
+Route::delete('/yen', 'MainController@allDestroy');

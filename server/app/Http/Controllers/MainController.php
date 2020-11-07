@@ -302,9 +302,49 @@ class MainController extends Controller
 
 
     // 全て削除機能
-    public function alldestroy($id)
+    // public function alldestroy($id)
+    // {
+    //     $id = 1;
+
+    //     $total = Total::find($id);
+
+    //     $total->person1_food_total = 0;
+    //     $total->person1_daily_total = 0;
+    //     $total->person1_leisure_total = 0;
+    //     $total->person1_housing_total = 0;
+    //     $total->person1_other_total = 0;
+    //     $total->person1_total = 0;
+        
+    //     $total->person2_food_total = 0;
+    //     $total->person2_daily_total = 0;
+    //     $total->person2_leisure_total = 0;
+    //     $total->person2_housing_total = 0;
+    //     $total->person2_other_total = 0;
+    //     $total->person2_total = 0;
+        
+    //     $total->both_food_total = 0;
+    //     $total->both_daily_total = 0;
+    //     $total->both_leisure_total = 0;
+    //     $total->both_housing_total = 0;
+    //     $total->both_other_total = 0;
+    //     $total->both_total = 0;
+
+    //     $total->save();
+
+    //     // return redirect("yen/");
+    //     return view('yen.config');
+    // }
+
+
+    public function allDestroy()
     {
         $id = 1;
+
+        
+        // 取得したidの情報を$add変数にいれる。
+        $add = Add::where('couple_id', $id);
+        // $add変数に入った情報を消す。
+        $add->delete();
 
         $total = Total::find($id);
 
@@ -314,14 +354,14 @@ class MainController extends Controller
         $total->person1_housing_total = 0;
         $total->person1_other_total = 0;
         $total->person1_total = 0;
-        
+
         $total->person2_food_total = 0;
         $total->person2_daily_total = 0;
         $total->person2_leisure_total = 0;
         $total->person2_housing_total = 0;
         $total->person2_other_total = 0;
         $total->person2_total = 0;
-        
+
         $total->both_food_total = 0;
         $total->both_daily_total = 0;
         $total->both_leisure_total = 0;
@@ -331,7 +371,7 @@ class MainController extends Controller
 
         $total->save();
 
-        // return redirect("yen/");
-        return view('yen.config');
+
+        return redirect("/yen");
     }
 }

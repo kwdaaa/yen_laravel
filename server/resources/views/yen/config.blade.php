@@ -1,18 +1,20 @@
 @extends('layouts.appConfig')
 
-@section('title', 'ふたりの家計')
+@section('title', '設定')
 
 @section('content')
 
-<img src="{{ asset('/img/logo.png') }}" alt="リセット">
-
-<img src="{{ asset('/img/logo.png') }}" alt="破局">
-
-        <form action="/yen/1" method="post">
-            @csrf
-            @method('DELETE')
-                <button class="delete" type="submit" onclick="if(!confirm('削除しますか？')){return false};"><img src="{{ asset('/img/logo.png') }}" alt="リセット"></button>
-        </form>
-
+<div class="clear">
+<form action="/yen" method="post">
+        @csrf
+        @method('DELETE')
+            <button class="delete" type="submit" onclick="if(!confirm('削除しますか？')){return false};"><img class="reset_button" src="{{ asset('/img/reset.png') }}" alt="リセット"></button>
+    </form>
+    <form action="/yen" method="post">
+        @csrf
+        @method('DELETE')
+            <button class="delete" type="submit" onclick="if(!confirm('本当に破局しますか？')){return false};"><img class="break_button" src="{{ asset('/img/break.png') }}" alt="破局"></button>
+    </form>
+</div>
 
 @endsection
