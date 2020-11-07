@@ -28,19 +28,19 @@
             {{-- ふたりの家計記録 --}}
             <table class="person_record">
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->both_food_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/1">¥{{ $couple->total->both_food_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->both_daily_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/2">¥{{ $couple->total->both_daily_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->both_leisure_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/3">¥{{ $couple->total->both_leisure_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->both_housing_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/4">¥{{ $couple->total->both_housing_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->both_other_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/5">¥{{ $couple->total->both_other_total }}</a></td>
                 </tr>
             </table>
 
@@ -49,7 +49,7 @@
             {{-- ふたりの家計記録：合計 --}}
             <table class="person_total">                
                 <tr>
-                    <td class="date" >¥{{ $couple->total->both_total }}</td>
+                    <td class="date">¥{{ $couple->total->both_total }}</td>
                 </tr>                
             </table>
         </div>
@@ -65,19 +65,19 @@
             {{-- person1の家計記録 --}}
             <table class="person_record">
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->person1_food_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/1">¥{{ $couple->total->person1_food_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->person1_daily_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/2">¥{{ $couple->total->person1_daily_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->person1_leisure_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/3">¥{{ $couple->total->person1_leisure_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->person1_housing_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/4">¥{{ $couple->total->person1_housing_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->person1_other_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/5">¥{{ $couple->total->person1_other_total }}</a></td>
                 </tr>
             </table>
 
@@ -102,19 +102,19 @@
             {{-- person2の家計記録 --}}
             <table class="person_record">
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->person2_food_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/1">¥{{ $couple->total->person2_food_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->person2_daily_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/2">¥{{ $couple->total->person2_daily_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->person2_leisure_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/3">¥{{ $couple->total->person2_leisure_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->person2_housing_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/4">¥{{ $couple->total->person2_housing_total }}</a></td>
                 </tr>
                 <tr>
-                    <td class="date" ><a href="/">¥{{ $couple->total->person2_other_total }}</a></td>
+                    <td class="date" ><a href="/yen/1/5">¥{{ $couple->total->person2_other_total }}</a></td>
                 </tr>
             </table>
 

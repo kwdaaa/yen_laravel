@@ -36,9 +36,9 @@ Route::get('yen/{id}/{category_id}', 'MainController@index');
 
 
 // 02-1:データ送信
-Route::get('yen/{id}/create/add', 'MainController@create');
+Route::get('yen/1/add/create', 'MainController@create');
 // 02-2:データ登録
-Route::post('yen/{id}', 'MainController@store');
+Route::post('yen/1', 'MainController@store');
 
 
 // 03:詳細画面
@@ -46,10 +46,10 @@ Route::get('/yen/{id}/{category_id}/{add_id}', 'MainController@show');
 
 
 // 04-1:編集データ送信
-Route::get('/yen/{id}/{category_id}/{add_id}/edit', 'MainController@edit');
+Route::get('/yen/1/{add_id}/add/edit', 'MainController@edit');
 // 04-2:編集データ登録
-Route::patch('/yen/{id}/{category_id}/{add_id}', 'MainController@update');
+Route::post('/yen/1/{add_id}/add', 'MainController@update');
 
 
 // 05:削除機能
-Route::delete('/yen/{id}/{category_id}/{add_id}', 'MainController@destroy');
+Route::delete('/yen/1/{add_id}/add', 'MainController@destroy');

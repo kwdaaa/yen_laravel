@@ -97,7 +97,7 @@ class MainController extends Controller
 
     //////////////////////////////////////////////////
     // 02-1:登録画面
-    public function create($id)
+    public function create()
     {
         $id = 1;
 
@@ -127,6 +127,9 @@ class MainController extends Controller
 
         // 値の用意
         // $request->dateに入ってきた値を$add->dateに入れ直す。
+        $add->couple_id = 1;
+
+        // $request->dateに入ってきた値を$add->dateに入れ直す。
         $add->date = $request->date;
 
         // $request->personに入ってきた値を$add->personに入れ直す。
@@ -142,11 +145,10 @@ class MainController extends Controller
         $add->timestamps = true;
 
         // インスタンスに値を設定して保存
-        dd($add);
         $add->save();
 
         // redirectで出力先の指定。登録したらhttp://localhost/yen/{id}/{category_id}にとぶ。
-        return redirect("yen/{{ $id }}/{{ $category_id }}");
+        return redirect("yen/$id/$category_id");
     }
 
 
@@ -162,56 +164,80 @@ class MainController extends Controller
         return view('yen.show', ['add' => $add]);
     }
 
-
-
     //////////////////////////////////////////////////
     // 04-1:編集画面
-    public function edit($id)
-    {
+    public function edit($add_id)
+    {        
         // 取得したidの情報を$add変数にいれる。
-        $add = Add::find($id);
+        $add = Add::find($add_id);
+
+        // Coupleテーブル(モデル)$idの情報取得
+        $couple = Couple::find(1);
+
+        $category = Category::all();
 
         // yenティレクトリーの中のedit.blade.phpページを指定し、キー「add」にバリュー「$add」を渡す。
-        return view('yen.edit', ['add' => $add]);
+        return view('yen.edit', compact('add', 'couple', 'category'));
     }
 
     // 04-2:編集機能
     // ここはidで探して持ってくる以外はstoreと同じ
-    public function update(Request $request, $id)
+    // Route::patch('/yen/1/{add_id}/add', 'MainController@update');
+    public function update(Request $request, $add_id)
     {
+        // Addクラス(モデル)を$addにインスタンス化
+        $add = new Add;
+
         // 取得したidの情報を$add変数にいれる。
-        $add = Add::find($id);
+        $add = Add::find($add_id);
+        $add_id = $add_id;
+
+        // Coupleテーブル(モデル)$idの情報取得
+        // $couple = Couple::find($id);
+        // $id = 1;
+        // $category_id = $request->category_id;
+
+        // $add = Add::where('couple_id', $id)->get();
 
         // 値の用意
-        // $request->titleに入ってきた値を$add->titleに入れ直す。
-        $add->title = $request->title;
+        // $request->dateに入ってきた値を$add->dateに入れ直す。
+        $add->couple_id = 1;
 
-        // $request->bodyに入ってきた値を$add->bodyに入れ直す。
-        $add->body = $request->body;
+        // $request->dateに入ってきた値を$add->dateに入れ直す。
+        $add->date = $request->date;
 
-        // addのtimestampsは設定されてないからfalse
-        $add->timestamps = false;
+        // $request->personに入ってきた値を$add->personに入れ直す。
+        $add->person = $request->person;
+
+        // $request->priceに入ってきた値を$add->priceに入れ直す。
+        $add->price = $request->price;
+
+        // $request->category_idに入ってきた値を$add->category_idに入れ直す。
+        $add->category_id = $request->category_id;
+
+        // addのtimestampsは設定されているからtrue
+        $add->timestamps = true;
 
         // インスタンスに値を設定して保存
         $add->save();
 
         // redirectで出力先の指定。編集したらhttp://localhost/yen/{couple_id}/{category_id}にとぶ。
-        return redirect('yen/{couple_id}/{category_id}');
+        return redirect("yen/1/$request->category_id");
     }
 
 
 
     //////////////////////////////////////////////////
     // 05:削除機能
-    public function destroy($id)
+    public function destroy($add_id)
     {
         // 取得したidの情報を$add変数にいれる。
-        $add = Add::find($id);
+        $add = Add::find($add_id);
 
         // $add変数に入った情報を消す。
         $add->delete();
 
         // redirectで出力先の指定。削除したらhttp://localhost/yen/{couple_id}/{category_id}にとぶ。
-        return redirect('yen/{couple_id}/{category_id}');
+        return redirect("yen/1/$add->category_id");
     }
 }

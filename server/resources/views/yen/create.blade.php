@@ -9,14 +9,13 @@
     <li>{{ $error }}</li>
 @endforeach --}}
 
-
-
 <div class="contents">
-<form action="/yen" method="post">
+<form action="/yen/1" method="post">
         @csrf
-        {{-- {{ old('title') }}を書くことで、エラーが起きたときに、書いた値が表示される。 --}}
+        {{-- {{ old('XXX') }}を書くことで、エラーが起きたときに、書いた値が表示される。 --}}
         <p>日 付<br></p>
-            <input class="input" type="date" value="<?php echo date('Y-m-d'); ?>" min="2020-11-01" max="2025-12-31" value="{{ old('date') }}">
+            
+            <input class="input" type="date" name = "date" value="<?php echo date('Y-m-d'); ?>" min="2020-11-01" max="2025-12-31" value="{{ old('date') }}">
 
         <p>購入者<br></p>
             <select class="input" name="person" size="1" value="{{ old('person') }}">
@@ -40,7 +39,7 @@
                 <option value="5">そ の 他</option>
             </select>
 
-        <button type="submit">登　録</button>
+        <button class="create" type="submit">登　録</button>
     </form>
 </div>
 

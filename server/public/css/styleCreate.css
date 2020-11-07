@@ -7,7 +7,7 @@
     letter-spacing: 0em;
 }
 
-button{
+.create{
     display: block;
     border: none;
     outline: none;
@@ -20,6 +20,35 @@ button{
     color: white;
     margin-top: 25px;
 }
+
+.edit{
+    display: block;
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 400px;
+    height: 35px;
+    font-size: 13pt;
+    border-radius: 17.5px;
+    background-color: #13AE67;
+    color: white;
+    margin-top: 25px;
+}
+
+.delete{
+    display: block;
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 400px;
+    height: 35px;
+    font-size: 13pt;
+    border-radius: 17.5px;
+    background-color: #C9CACA;
+    color: white;
+    margin-top: 10px;
+}
+
 
 button:hover{
 	opacity: 0.7;
