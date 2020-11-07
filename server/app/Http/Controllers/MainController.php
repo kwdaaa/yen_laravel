@@ -148,22 +148,33 @@ class MainController extends Controller
         $add->save();
 
 
+        $this->total($id);
+        // $total = new Total;
+        // $total = Total::find(1);
 
-        $total = new Total;
-        $total = Total::find(1);
-
-        switch ($request->person && $request->category_id) {
-            case '1 && 1':
-                $total->person1_food_total += $request->price;
-                break;
+        // switch ($request->person && $request->category_id) {
+        //     case '1 && 1':
+        //         $total->person1_food_total += $request->price;
+        //         break;
             
-            default:
-                # code...
-                break;
-        }
+        //     default:
+        //         # code...
+        //         break;
+        // }
 
         // redirectで出力先の指定。登録したらhttp://localhost/yen/{id}/{category_id}にとぶ。
         return redirect("yen/$id/$category_id");
+    }
+
+    private function total($id)
+    {
+        $adds = Add::where('couple_id', $id)->get();
+        $person1_food_total = $adds->where('person',0)->where('category_id',1)->pluck('price')->sum();
+        $person1_food_total = $adds->where('person',0)->where('category_id',1)->pluck('price')->sum();
+
+        // $adds->();
+
+        // $total->person1_food_total += $request->price;
     }
 
 
