@@ -147,6 +147,21 @@ class MainController extends Controller
         // インスタンスに値を設定して保存
         $add->save();
 
+
+
+        $total = new Total;
+        $total = Total::find(1);
+
+        switch ($request->person && $request->category_id) {
+            case '1 && 1':
+                $total->person1_food_total += $request->price;
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+
         // redirectで出力先の指定。登録したらhttp://localhost/yen/{id}/{category_id}にとぶ。
         return redirect("yen/$id/$category_id");
     }
@@ -174,10 +189,10 @@ class MainController extends Controller
         // Coupleテーブル(モデル)$idの情報取得
         $couple = Couple::find(1);
 
-        $category = Category::all();
+        $categories = Category::all();
 
         // yenティレクトリーの中のedit.blade.phpページを指定し、キー「add」にバリュー「$add」を渡す。
-        return view('yen.edit', compact('add', 'couple', 'category'));
+        return view('yen.edit', compact('add', 'couple', 'categories'));
     }
 
     // 04-2:編集機能

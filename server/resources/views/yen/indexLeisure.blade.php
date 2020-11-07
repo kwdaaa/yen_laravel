@@ -14,14 +14,15 @@
             <hr class="line1">
 
             {{-- 家計記録 --}}
-            <table class="person_record position-relative">
-                @foreach ($leisures_person1 as $leisure_person1)
+            @foreach ($leisures_person1 as $leisure_person1)
+                <table class="person_record position-relative">
                 <tr>
-                    <td class="date" ><a href="/" class="stretched-link"></a>{{ $leisure_person1->date }}</td>
-                    <td class="price"><a href="/" class="stretched-link"></a>¥{{ $leisure_person1->price }}</td>
+                    <td><a href="{{ $leisure_person1->id }}/add/edit" class="stretched-link"></a></td>
+                    <td class="date" >{{ $leisure_person1->date }}</td>
+                    <td class="price">¥{{ $leisure_person1->price }}</td>
                 </tr>
-                @endforeach
-            </table>
+                </table>
+            @endforeach
 
             <hr class="line2">
 
@@ -42,14 +43,15 @@
             <hr class="line1">
 
             {{-- 家計記録 --}}
-            <table class="person_record position-relative">
-                @foreach ($leisures_person2 as $leisure_person2)
+            @foreach ($leisures_person2 as $leisure_person2)
+                <table class="person_record position-relative">
                 <tr>
-                    <td class="date" ><a href="/" class="stretched-link"></a>{{ $leisure_person2->date }}</td>
-                    <td class="price"><a href="/" class="stretched-link"></a>¥{{ $leisure_person2->price }}</td>
+                    <td><a href="{{ $leisure_person2->id }}/add/edit" class="stretched-link"></a></td>
+                    <td class="date" >{{ $leisure_person2->date }}</td>
+                    <td class="price">¥{{ $leisure_person2->price }}</td>
                 </tr>
-                @endforeach
-            </table>
+                </table>
+            @endforeach
 
             <hr class="line2">
 

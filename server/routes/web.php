@@ -36,7 +36,7 @@ Route::get('yen/{id}/{category_id}', 'MainController@index');
 
 
 // 02-1:データ送信
-Route::get('yen/1/add/create', 'MainController@create');
+Route::get('yen/1/create/add', 'MainController@create');
 // 02-2:データ登録
 Route::post('yen/1', 'MainController@store');
 

@@ -1,3 +1,12 @@
+.contents{
+    width: 400px;
+    display: block;
+    justify-content: center;
+    margin: 0px auto;
+    margin-top: 75px;
+
+}
+
 .input{
     width: 400px;
     height: 35px;
@@ -49,7 +58,6 @@
     margin-top: 10px;
 }
 
-
 button:hover{
 	opacity: 0.7;
 }
@@ -57,10 +65,4 @@ button:hover{
 p{
     margin: 10px 0px 5px 0px;
     color: #9FA0A0;
-}
-
-.contents{
-    display: flex;
-    justify-content: center;
-    margin-top: 75px;
 }

@@ -40,6 +40,13 @@ table {
     font-family: 'Barlow', sans-serif;
     font-weight: 500;
     letter-spacing: 0.1em;
+    margin-top: -20px;
+
+}
+
+.person_record:hover{
+    text-decoration: none;
+    color: #C9CACA;
 }
 
 /* 個別登録情報：アイテム（日付） */
@@ -80,7 +87,7 @@ table {
     width: 396px;
     border: none;
     border-top: dashed 2px #3E3A39;
-    margin: 10px 0px 5px 0px;
+    margin: 10px 0px 20px 0px;
 }
 
 /* 実線 */
