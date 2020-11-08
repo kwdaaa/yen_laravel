@@ -8,7 +8,7 @@
         {{-- person1 --}}
         <div class="person">
             <img src="{{ asset('/img/person1_l.png') }}" alt="person1" height="40">
-            <p class="title">{{ $couple->person1_name }}の娯楽費</p>
+            <p class="title">{{ $couple->person1_name }}の固定費</p>
 
             <hr class="line1">
 
@@ -46,7 +46,7 @@
         {{-- person2 --}}
         <div class="person">
             <img src="{{ asset('/img/person2_l.png') }}" alt="person2" height="40">
-            <p class="title">{{ $couple->person2_name }}の娯楽費</p>
+            <p class="title">{{ $couple->person2_name }}の固定費</p>
 
             <hr class="line1">
 

@@ -21,6 +21,14 @@ Route::get('/yen/1/config', function () {
     return view('yen.config');
 });
 
+Route::get('/yen/new', function () {
+    return view('yen.new');
+});
+
+Route::get('/yen/login', function () {
+    return view('yen.login');
+});
+
 Auth::routes();
 
 // 「/」のURLでbothアクションへ飛ぶ
