@@ -3,6 +3,6 @@
 
 @section('content')
 
-<img src="{{ asset('/img/new.png') }}" alt="" width="992">
+<img src="{{ asset('/img/new.jpg') }}" alt="" width="992">
 
 @endsection
