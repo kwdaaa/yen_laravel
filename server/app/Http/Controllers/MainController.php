@@ -16,6 +16,8 @@ use App\Category;
 // Coupleクラス(モデル)を読み込む
 use App\Couple;
 
+use App\Http\Requests\AddRequest;
+
 
 class MainController extends Controller
 {
@@ -115,7 +117,7 @@ class MainController extends Controller
     }
 
     // 02-2:登録機能
-    public function store(Request $request)
+    public function store(AddRequest $request)
     {
         // Coupleテーブル(モデル)$idの情報取得
         // $couple = Couple::find($id);
@@ -233,7 +235,7 @@ class MainController extends Controller
     // 04-2:編集機能
     // ここはidで探して持ってくる以外はstoreと同じ
     // Route::patch('/yen/1/{add_id}/add', 'MainController@update');
-    public function update(Request $request, $add_id)
+    public function update(AddRequest $request, $add_id)
     {
 
         $id = 1;

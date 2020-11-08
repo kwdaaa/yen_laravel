@@ -1,5 +1,5 @@
 .contents{
-    width: 400px;
+    width: 992px;
     display: block;
     justify-content: center;
     margin: 0px auto;
@@ -65,4 +65,11 @@ button:hover{
 p{
     margin: 10px 0px 5px 0px;
     color: #9FA0A0;
+    display: inline-block;
+}
+
+.error{
+    color: red;
+    font-size: 13pt;
+    margin: 0px;
 }

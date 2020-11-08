@@ -1,8 +1,9 @@
 /* コンテンツ */
 /* 基本設定 */
 .contents{
+    width: 992px;
     display: flex;
-    margin: 0px 50px;
+    margin: 0px auto;
 }
 
 /* テーブル全体 */
