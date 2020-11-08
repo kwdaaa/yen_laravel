@@ -16,11 +16,12 @@ body{
 /* ロゴ画像 */
 .logo_image{
     margin-right: auto;
+    margin-left: 0px;
 }
 
 /* 登録画像 */
 .add_img{
-    margin-left: 590px;
+    margin-left: auto;
 }
 
 .add_img img:hover{
@@ -29,7 +30,8 @@ body{
 
 /* 設定画像 */
 .config_img{
-    margin-left: auto;
+    margin-right: 0px;
+    margin-left: 15px;
 }
 
 .config_img img:hover{

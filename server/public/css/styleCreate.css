@@ -1,5 +1,5 @@
 .contents{
-    width: 992px;
+    width: 400px;
     display: block;
     justify-content: center;
     margin: 0px auto;
@@ -72,4 +72,10 @@ p{
     color: red;
     font-size: 13pt;
     margin: 0px;
+}
+
+form{
+    display: inline;
+    width: 400px;
+    margin: auto;
 }
