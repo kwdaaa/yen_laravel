@@ -1,0 +1,111 @@
+/* コンテンツ */
+/* 基本設定 */
+.contents{
+    width: 992px;
+    display: flex;
+    margin: 0px auto;
+}
+
+/* テーブル全体 */
+table {
+    border-collapse: separate;
+    border-spacing: 5px 25px;
+}
+
+/* <person>の<category> */
+.title{
+    font-size: 18pt;
+    font-weight: bold;
+    text-align:center;
+    padding-bottom: 5px;
+}
+
+.person img{
+    display: block;
+    margin: 0px auto 10px auto;
+}
+
+/* person1 */
+/* 全情報：ブロック（タイトル、日付・金額、合計・合計金額） */
+.person{
+    margin-right: auto;
+    font-size: 18pt;
+    letter-spacing: 2pt;
+    padding: 50px;
+}
+
+/* 個別登録情報：ブロック（日付・金額） */
+.person_record{
+    width: 396px;
+    margin-right: 0px;
+    text-align: right;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-top: -20px;
+}
+
+.person_record:hover{
+    text-decoration: none;
+    color: #C9CACA;
+}
+
+.person_non_record{
+    width: 396px;
+    margin-right: 0px;
+    text-align: right;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-top: -20px;
+}
+
+
+/* 個別登録情報：アイテム（日付） */
+.date {
+    text-align:left;
+}
+
+/* 個別登録情報：アイテム（金額） */
+.price {
+    text-align: right;
+}
+
+/* 合計登録情報：ブロック（合計、合計金額） */
+.person_total{
+    width: 396px;
+    margin-right: 0px;
+    text-align: right;
+}
+
+/* 合計登録情報：アイテム（合計） */
+.total{
+    text-align:left;
+    font-weight: bold;
+}
+
+/* 合計登録情報：アイテム（合計金額） */
+.total_price {
+    text-align: right;
+    font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+
+
+/* 点線 */
+.line1{
+    width: 396px;
+    border: none;
+    border-top: dashed 2px #3E3A39;
+    margin: 10px 0px 20px 0px;
+}
+
+/* 実線 */
+.line2{
+    width: 396px;
+    border: none;
+    border-top: solid 3px #3E3A39;
+    margin: 5px 0px 0px 0px;
+}

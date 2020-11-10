@@ -1,0 +1,39 @@
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #3E3A39;
+}
+
+/* ヘッダー */
+/* 基本設定 */
+.header{
+    background-color: #EFEFEF;
+    margin: 0px auto;
+    display: flex;
+    padding: 15px 50px;
+    align-items: center;
+}
+
+/* ロゴ画像 */
+.logo_image{
+    margin-right: auto;
+    margin-left: 0px;
+}
+
+/* 登録画像 */
+.add_img{
+    margin-left: auto;
+}
+
+.add_img img:hover{
+    opacity: 0.7;
+}
+
+/* 設定画像 */
+.config_img{
+    margin-right: 0px;
+    margin-left: 15px;
+}
+
+.config_img img:hover{
+    opacity: 0.;
+}
